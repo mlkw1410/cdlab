@@ -7,7 +7,7 @@ char *keywords[] = {
     "while", "for", "return", "void"
 };
 
-void iskeyword(char word[]){
+int iskeyword(char word[]){
     int i;
     for(i=0; i<9; i++){
         if(strcmp(word, keywords[i]) == 0){
@@ -23,7 +23,7 @@ int main(){
 
     printf("enter a string: ");
 
-    while(ch=getchat()!=EOF){
+    while((ch=getchar())!=EOF){
 
         if(ch == ' ' || ch == '\n' || ch == '\t'){
             continue;
@@ -72,7 +72,7 @@ int main(){
             printf("%c -> unknown\n", ch);
         }
 
-        return 0;
 
     }
+    return 0;
 }
