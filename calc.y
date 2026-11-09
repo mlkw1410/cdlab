@@ -7,17 +7,11 @@
 %}
 
 
-%union
-{
-    double dval;
-}
-
-%token <dval> NUMBER
-%type <dval> EXPR
+%token NUMBER
 
 %left '+' '-'
 %left '*' '/'
-%right UMINUS
+
 
 %%
 stmt: EXPR '\n' {printf("result = %g\n", $1); exit(0);}
@@ -33,7 +27,6 @@ EXPR: EXPR '+' EXPR {$$ = $1 + $3;}
         $$ = $1 / $3;
     }
     | '(' EXPR ')' {$$ = $2;}
-    | '-' EXPR %prec UMINUS {$$ = -$2;}
     | NUMBER {$$ = $1;}
     ;
 %%

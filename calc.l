@@ -5,7 +5,7 @@
 %}
 
 %%
-[0-9]+(\.[0-9]+)?       {yylval.dval = atof(yytext); return NUMBER;}
+[0-9]+    {yylval= atoi(yytext); return NUMBER;}
 [ \t]       ;
 \n          {return '\n';}
 .           {return yytext[0];}
