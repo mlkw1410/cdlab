@@ -6,16 +6,16 @@ int n, trans[max][2][max];
 int visited[100], queue[100];
 
 int front =0, rear =0;
-int i, j, k;
 
 int main()
 {
+    int i, j, k;
     printf("enter the no.of states: ");
     scanf("%d", &n);
 
     printf("enter the transition table: \n");
     for (i=0; i<n; i++){
-        for(j=0; i<2; i++){
+        for(j=0; j<2; j++){
             printf("state %d, input %d: \n", i, j);
             for(k=0; k<n; k++){
                 scanf("%d", &trans[i][j][k]);
@@ -31,7 +31,7 @@ int main()
             continue;
         }
         visited[current]=1;
-        printf("\nsubsset %d\n, current");
+        printf("\nsubsset %d\n", current);
 
         for(j=0; j<2; j++){
             int next = 0;
@@ -44,12 +44,13 @@ int main()
                     }
                 }
             }
-            printf("input %d -> %d", j, next);
+            printf("input %d -> %d\n", j, next);
             if(!visited[next]){
                 queue[rear++] = next;
             }
         }
     }
+    return 0;
 }
 
 
